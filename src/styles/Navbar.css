@@ -1,0 +1,28 @@
+.navbar{
+    display: flex;
+    align-items: center;
+    height: 70px;
+    /* border: 1px solid white; */
+}
+.navbar-logo .link{
+    color: white;
+    text-decoration: none;
+    font-size: 22px;
+}
+.link span{
+    color: rgb(202, 19, 19);
+    font-size: 35px;
+}
+.navbar-left,.navbar-right{
+    margin: auto;
+    width: 40%;
+    display: flex;
+}
+.navbar-right{
+    justify-content: flex-end;
+}
+.search-button{
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
+}

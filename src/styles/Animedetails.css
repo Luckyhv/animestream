@@ -1,0 +1,130 @@
+.detailscontent {
+    margin: 2rem 5rem 2rem 5rem;
+    position: relative;
+  
+    @media screen and (max-width: 600px) {
+      margin: 1rem;
+    }
+  }
+  
+  .detailscontentwrapper {
+    padding: 0 3rem 0 3rem;
+    display: flex;
+  }
+  
+  .detailscontentwrapper div > * {
+    margin-bottom: 0.6rem;
+  }
+  
+  .detailscontentwrapper div {
+    margin: 1rem;
+    font-size: 1rem;
+    color: #aaaeb6;
+    font-family: "Gilroy-Regular", sans-serif;
+  }
+  
+  .detailscontentwrapper div span {
+    font-family: "Gilroy-Bold", sans-serif;
+    color: white;
+  }
+  
+  .detailscontentwrapper div p {
+    text-align: justify;
+  }
+  
+  .detailscontentwrapper div h1 {
+    font-family: "Gilroy-Bold", sans-serif;
+    font-weight: normal;
+    color: white;
+  }
+  
+  .detailscontentwrapper div button {
+    display: none;
+  }
+  
+  @media screen and (max-width: 1100px) {
+    .detailscontentwrapper {
+      display: flex;
+      flex-direction: column-reverse;
+      padding: 0;
+    }
+  
+    .detailscontentwrapper div {
+      margin: 1rem;
+      margin-bottom: 0.2rem;
+    }
+  
+    .detailscontentwrapper div h1 {
+      font-size: 1.6rem;
+    }
+  
+    .detailscontentwrapper div p {
+      font-size: 1rem;
+    }
+  
+    .detailscontentwrapper div button {
+      display: inline;
+      border: none;
+      outline: none;
+      background-color: transparent;
+      text-decoration: underline;
+      font-family: "Gilroy-Bold", sans-serif;
+      font-size: 1rem;
+      color: white;
+    }
+  }
+  
+  .detailsposter {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .detailsposter img {
+    width: 220px;
+    height: 300px;
+    border-radius: 0.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+    top: -20%;
+    filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.5));
+  }
+  
+  @media screen and (max-width: 1100px) {
+    .detailsposter img {
+      display: none;
+    }
+  }
+  
+  .detailsbtn {
+    font-size: 1.3rem;
+    padding: 0.8rem 3rem;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    background-color: #4d148c;
+    font-family: "Gilroy-Bold", sans-serif;
+    border-radius: 0.4rem;
+    position: relative;
+    top: -25%;
+    white-space: nowrap;
+  
+    @media screen and (max-width: 600px) {
+      display: block;
+      width: 100%;
+    }
+  }
+  
+  .detailsbannerimg {
+    width: 100%;
+    height: 20rem;
+    object-fit: cover;
+    border-radius: 0.7rem;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .detailsbannerimg {
+      height: 13rem;
+      border-radius: 0.5rem;
+    }
+  }
+  

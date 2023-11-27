@@ -1,0 +1,128 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #060606;
+  font-family: "Lexend", sans-serif;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+::placeholder {
+  color: black;
+  opacity: 0.3;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #6969ff !important;
+}
+.swiper-pagination-bullet {
+  background-color: #c8c8ff;
+  @media screen and (max-width: 600px) {
+    width: 0.4rem;
+    height: 0.4rem;
+  }
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: white !important;
+  padding-bottom: 20px;
+}
+
+.swiper-wrapper {
+  padding-bottom: 30px;
+  @media screen and (max-width: 600px) {
+    padding-bottom: 40px;
+  }
+}
+
+.swiper-scrollbar {
+  background-color: #28273a;
+}
+
+.swiper-scrollbar-drag {
+  background-color: #3d3b5b;
+}
+
+.swiper-container-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-custom,
+.swiper-pagination-fraction {
+  bottom: 0px !important;
+}
+
+@media only screen and (max-width: 600px) {
+  .plyr button {
+    font-size: 0.8rem;
+  }
+}
+
+.skip-button {
+  padding: 0.3rem 1rem;
+  position: absolute;
+  top: -1.5rem;
+  right: 3rem;
+  border-radius: 0.3rem;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  outline: none;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+}
+
+.plyr__poster {
+  background-size: cover;
+}
+
+.plyr {
+  aspect-ratio: 16 / 9;
+}
+
+.vid-con {
+  position: absolute;
+  top: -100%;
+  bottom: 100%;
+  right: 2%;
+  height: 100%;
+}
+
+.next-button {
+  position: absolute;
+  background: #ffffff;
+  border-radius: 2px;
+  border: none;
+  color: black;
+  cursor: pointer;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  padding: 5px;
+  right: 1%;
+  top: -39px;
+  width: 70px;
+  height: 33px;
+}
+
+.skip-con {
+  position: absolute;
+  bottom: 100%;
+  right: 2%;
+  height: 100vh;
+}
+.skip-button {
+  position: absolute;
+  background: #ffffff;
+  border-radius: 2px;
+  border: none;
+  color: black;
+  cursor: pointer;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  right: 1%;
+  top: -45px;
+  width: 90px;
+  height: 33px;
+}

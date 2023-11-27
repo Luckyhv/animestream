@@ -1,0 +1,42 @@
+.playerstyle{
+    max-width: 1000px;
+    max-height: 700px;
+}
+.player{
+    width: 90%;
+    margin: 0 auto;
+}
+.watchtitle{
+    margin: 0 10px 0 0;
+}
+.playerinfo{
+    /* display: flex; */
+    align-items: center;
+    margin: 10px 0;
+}
+.episode-navigation-buttons{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px;
+    border-bottom: 0.2px solid #1e1e1e;
+}
+.playerbtns{
+    padding: 10px 12px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(69, 69, 69);
+    cursor: pointer;
+    margin: 10px;
+}
+.episodenum{
+    /* font-size: 24px; */
+    font-weight: 100;
+    margin: 7px 0;
+}
+ @media (max-width:600px){
+    .player{
+        width: 93%;
+        margin: 0 auto;
+    }
+ }

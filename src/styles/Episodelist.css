@@ -1,0 +1,87 @@
+.episodes{
+    display: flex;
+    /* margin: 10px ; */
+    /* max-width: 1000px;
+    max-height: 700px; */
+}
+.episodes ul{
+    flex-wrap: wrap;
+    display: flex;
+    list-style: none;
+}
+.episodes li{
+    border-radius: 5px;
+    margin: 6px;
+    cursor: pointer;
+}
+.episodelink{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    width: 50px;
+    height: 30px;
+    color: #aaaaaa;
+    font-size: 13px;
+    border-radius: 5px;
+}
+.episodelink:hover{
+    background-color: rgb(183, 18, 18);
+    color: white;
+}
+.selected-episode{
+    background-color: rgb(183, 18, 18); 
+    color: white;
+}
+.notselectedep{
+    background-color: #222222;
+}
+.searchnumber{
+    color: #d1d7e0;
+    background-color: #262626;
+    border: none;
+    padding: 5px 0 5px 8px;
+    border-radius: 6px;
+    outline: none;
+
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+   -webkit-appearance: none;
+}
+
+::-webkit-input-placeholder{
+    color: #e6e6e6;
+    font-size: 12px;
+}
+.episoderange{
+    color: #d1d7e0;
+    background-color: #262626;
+    border: none;
+    padding: 5px 4px;
+    margin: 10px;
+    /* text-align: center; */
+    border-radius: 6px;
+    outline: none;
+    cursor: pointer;
+}
+option{
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.custom-select {
+    position: relative;
+    cursor: pointer;
+  }
+
+  .togglesub{
+    margin: 10px 10px 10px 0;
+    color: #d1d7e0;
+    background-color: #262626;
+    padding: 5px 8px;
+    border-radius: 6px;
+    border: none;
+  }
