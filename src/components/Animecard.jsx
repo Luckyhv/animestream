@@ -20,7 +20,7 @@ function Animecard({ url }) {
           perPage: 20,
         }
       });
-      console.log(res.data);
+      // console.log(res.data);
         setanimedata(res.data.results);
       setLoading(false);
     } catch (error) {

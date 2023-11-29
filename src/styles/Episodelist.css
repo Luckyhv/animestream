@@ -84,4 +84,30 @@ option{
     padding: 5px 8px;
     border-radius: 6px;
     border: none;
+    cursor: pointer;
   }
+
+  .providerbtn{
+    border: none;
+    background-color: #1d1d1d;
+    cursor: pointer;
+    padding: 4px 6px;
+    border-radius: 6px;
+}
+
+.tab{
+    border: none;
+    border-radius: 6px;
+    outline: none;
+    color: #d1d7e0;
+    margin: 0 5px;
+    cursor: pointer;
+}
+.selectedproviderbtn{
+    padding: 7px 9px;
+    border-radius: 6px;
+    border: none;
+    background-color: #222222;
+    color: white;
+    cursor: pointer;
+}

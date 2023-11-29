@@ -1,7 +1,7 @@
 import Artplayer from "artplayer";
 import React, { useRef, useEffect } from "react";
 
-function ArtPlayer({ option, getInstance,thumbnails, skip,...rest }) {
+function ArtPlayer({ option, getInstance, skip,...rest }) {
   const artRef = useRef();
 
   useEffect(() => {

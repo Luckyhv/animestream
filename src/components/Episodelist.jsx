@@ -3,8 +3,8 @@ import { DataContext } from '../context/DataContext';
 import { Link, useParams } from 'react-router-dom';
 import '../styles/Episodelist.css';
 
-function Episodelist({ epnumber }) {
-  const { epnum } = useParams();
+function Episodelist() {
+  const { epnum,provider } = useParams();
   const { data, anifyData } = useContext(DataContext);
   const [selectedProvider, setSelectedProvider] = useState('');
   const [providers, setProviders] = useState([]);
@@ -16,11 +16,12 @@ function Episodelist({ epnumber }) {
 
   useEffect(() => {
     if (anifyData?.length > 0) {
-      const providerIds = ['gogoanime', ...anifyData.map(provider => provider.providerId)];
+      const providerIds = [...anifyData.map(provider => provider.providerId)];
       setProviders(providerIds);
-      setSelectedProvider(providerIds[0]); // Set default provider
+      const initialProvider = providerIds.includes(provider) ? provider : providerIds[0];
+      setSelectedProvider(initialProvider);
     }
-  }, [anifyData]);
+  }, [anifyData, provider]);
 
   const handleChangeProvider = (event) => {
     setSelectedProvider(event.target.value);
@@ -34,12 +35,8 @@ function Episodelist({ epnumber }) {
   };
 
   const getEpisodesByProvider = () => {
-    if (selectedProvider === 'gogoanime') {
-      return data?.episodes || [];
-    } else {
       const selectedProviderData = anifyData.find(provider => provider.providerId === selectedProvider);
       return selectedProviderData ? selectedProviderData.episodes : [];
-    }
   };
 
   const episodes = getEpisodesByProvider();

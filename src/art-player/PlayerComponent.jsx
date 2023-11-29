@@ -7,7 +7,7 @@ import { DataContext } from '../context/DataContext';
 import Watchplayerskeleton from "../skeletons/Watchplayerskeleton";
 
 function PlayerComponent({ epid,epnum,provider,subtype }) {
-  const { data } = useContext(DataContext);
+  const { data,anifybanner } = useContext(DataContext);
   const [epSource, setEpSource] = useState(null);
   const [uri, setUri] = useState("");
   const [loading, setLoading] = useState(true);
@@ -15,7 +15,7 @@ function PlayerComponent({ epid,epnum,provider,subtype }) {
   const [skip, setSkip] = useState({});
   const [aspectRatio,setAspectRatio] = useState(null);
   const [subtitle, setSubtitle] = useState("");
-  const [thumbnails,setthumbnails] = useState("");
+  // const [thumbnails,setthumbnails] = useState("");
 
    function calculateAspectRatio(width, height) {
     const gcd = (a, b) => (b === 0 ? a : gcd(b, a % b));
@@ -27,30 +27,29 @@ function PlayerComponent({ epid,epnum,provider,subtype }) {
   const fetchSource = async () => {
     setLoading(true);
     window.scrollTo(0, 0);
-    if(provider==="gogoanime"){
-    try {
-      // Fetch source data
-      const { data: sourceData } = await axios.get(`${import.meta.env.VITE_BACKEND_URL}meta/anilist/watch/${epid}`);
-      setEpSource(sourceData);
-      console.log(sourceData.sources);
-      sourceData.sources &&
-        sourceData.sources.map((source) => {
-          if (source.quality === "720p") {
-            setUri(source.url);
-          }
-        });
-        // subtitle
-        if (sourceData.subtitles) {
-          const englishSubtitle = sourceData.subtitles.map((subtitle) => subtitle.lang === "English");
-          setSubtitle(englishSubtitle ? englishSubtitle.url : "");
-        } else {
-          setSubtitle("");
-        }
-    } catch (error) {
-      setError(`Error fetching source data: ${error.message}`);
-    }
-  }
-  else{
+  //   if(provider==="gogoanime"){
+  //   try {
+  //     // Fetch source data
+  //     const { data: sourceData } = await axios.get(`${import.meta.env.VITE_BACKEND_URL}meta/anilist/watch/${epid}`);
+  //     setEpSource(sourceData);
+  //     console.log(sourceData.sources);
+  //     sourceData.sources &&
+  //       sourceData.sources.map((source) => {
+  //         if (source.quality === "720p") {
+  //           setUri(source.url);
+  //         }
+  //       });
+  //       // subtitle
+  //       if (sourceData.subtitles) {
+  //         const englishSubtitle = sourceData.subtitles.map((subtitle) => subtitle.lang === "English");
+  //         setSubtitle(englishSubtitle ? englishSubtitle.url : "");
+  //       } else {
+  //         setSubtitle("");
+  //       }
+  //   } catch (error) {
+  //     setError(`Error fetching source data: ${error.message}`);
+  //   }
+  // }
     try {
       const { data: sourceData } = await axios.get(
         `https://api.anify.tv/sources?providerId=${provider}&watchId=${encodeURIComponent(epid)}
@@ -64,55 +63,79 @@ function PlayerComponent({ epid,epnum,provider,subtype }) {
             setUri(source.url);
           }
         });
+
      // subtitle
-        sourceData.subtitles &&
-        sourceData.subtitles.map((subtitle) => {
-          if (subtitle.lang === "English") {
-            setSubtitle(subtitle.url);
-          }
-        });
-    //  thumbnails
-    sourceData.subtitles &&
-        sourceData.subtitles.map((thumbnail) => {
-          if (thumbnail.lang === "thumbnails" || thumbnail.lang === "Thumbnails") {
-            setthumbnails(thumbnail.url);
-          }
-        });
-    } catch (error) {
-      return { error: error.message, status: error.response.status };
+     if (sourceData && sourceData.subtitles.length>0) {
+      const englishSubtitle = sourceData.subtitles.find((subtitle) => subtitle.lang === "English");
+      if (englishSubtitle) {
+        setSubtitle(englishSubtitle.url);
+      }
     }
-  }
+      else {
+      setSubtitle("");
+    }
+        
+        if (sourceData) {
+          const op = {
+             interval:{
+            startTime: sourceData.intro.start,
+            endTime: sourceData.intro.end,
+          }};  
+          const ed = {
+            interval:{
+            startTime: sourceData.outro.start,
+            endTime: sourceData.outro.end,
+          }
+        };
+        
+          setSkip({
+            op: op,
+            ed: ed,
+          });
+        }
 
-    try {
-      // Fetch skip details
-      const response = await axios.get(
-        `https://api.aniskip.com/v2/skip-times/${data.malId}/${parseInt(epnum)}?types[]=ed&types[]=mixed-ed&types[]=mixed-op&types[]=op&types[]=recap&episodeLength=`
-      );
-
-      const skipdetails = response.data;
-      const op =
-        skipdetails?.results?.find((item) => item.skipType === "op") || null;
-      const ed =
-        skipdetails?.results?.find((item) => item.skipType === "ed") || null;
-  
-      setSkip({
-        op,
-        ed,
-      });
+    //  thumbnails
+    // sourceData.subtitles &&
+    //     sourceData.subtitles.map((thumbnail) => {
+    //       if (thumbnail.lang === "thumbnails" || thumbnail.lang === "Thumbnails") {
+    //         setthumbnails(thumbnail.url);
+    //       }
+    //     });
     } catch (error) {
-      setSkip({
-        op: null,
-        ed: null,
-      })
-    } finally {
+      return { error: error.message, status: error.response };
+    }
+  
+    // try {
+    //   // Fetch skip details
+    //   const response = await axios.get(
+    //     `https://api.aniskip.com/v2/skip-times/${data.id}/${parseInt(epnum)}?types[]=ed&types[]=mixed-ed&types[]=mixed-op&types[]=op&types[]=recap&episodeLength=`
+    //   );
+
+    //   const skipdetails = response.data;
+    //   console.log(skipdetails)
+    //   const op =
+    //     skipdetails?.results?.find((item) => item.skipType === "op") || null;
+    //   const ed =
+    //     skipdetails?.results?.find((item) => item.skipType === "ed") || null;
+  
+    //   setSkip({
+    //     op,
+    //     ed,
+    //   });
+    // } catch (error) {
+    //   setSkip({
+    //     op: null,
+    //     ed: null,
+    //   })
+    // } 
+    finally {
       setLoading(false);
     }
   };
-
+  
   useEffect(() => {
     fetchSource();
   }, [epid, epnum,provider,subtype]);
-
 
   let options = {
     container: ".artplayer-app",
@@ -134,7 +157,7 @@ function PlayerComponent({ epid,epnum,provider,subtype }) {
     }
     },
     title: data.title.english,
-    poster: data.cover,
+    poster: anifybanner,
     volume: 1,
     isLive: false,
     autoplay: false,
@@ -164,7 +187,7 @@ function PlayerComponent({ epid,epnum,provider,subtype }) {
     quality:
       epSource && epSource.sources
         ? epSource.sources.map((source) => ({
-          default: source.quality === "720p",
+          default: source.quality === "720p" || source.quality === "auto",
           html: source.quality,
           url: source.url,
         }))
@@ -288,7 +311,7 @@ return loading ? (
   <ArtPlayer
     option={options}
     // key={uri}
-    thumbnails={thumbnails}
+    // thumbnails={thumbnails}
     className=""
     style={{
       width: "100%",

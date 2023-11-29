@@ -1,10 +1,11 @@
 .playerstyle{
     max-width: 1000px;
-    max-height: 700px;
+    max-height: 705px;
 }
 .player{
     width: 90%;
     margin: 0 auto;
+    min-height: 100vh;
 }
 .watchtitle{
     margin: 0 10px 0 0;
