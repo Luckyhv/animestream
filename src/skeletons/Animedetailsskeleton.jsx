@@ -9,7 +9,7 @@ function Animedetailsskeleton() {
   return (
     <div className="detailsskeleton">
       <Skeleton
-        height={width <= 600 ? "13rem" : "20rem"}
+        height={width <= 600 ? "12rem" : "20rem"}
         baseColor={"#202020"}
         highlightColor={"#333a"}
         style={{

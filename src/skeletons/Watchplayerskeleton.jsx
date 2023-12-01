@@ -14,8 +14,8 @@ function Watchplayerskeleton() {
             baseColor={"#202020"}
             highlightColor={"#333a"}
             style={{
-              marginBottom: "1rem",
-              aspectRatio: width <= 600 ? "16 / 11" : "16 / 9",
+              marginBottom: "0rem",
+              aspectRatio: width <= 600 ? "16 /9.5" : "16 / 9",
             }}
           />
           {/* <Skeleton

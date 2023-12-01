@@ -2,7 +2,7 @@
     margin: 1.5rem 5rem 1rem 5rem;
     @media screen and (max-width: 900px) {
       margin: 1rem 0rem 0rem 0rem;
-      padding: 0 0.75rem;
+      padding: 0 0.3rem;
     }
 }
 .hometitle{
@@ -16,7 +16,7 @@
   color: rgb(202, 19, 19);
 }
 .homecontainer{
-  margin: 0 0 3rem 0;
+  margin: 0 0 2rem 0;
 }
 
 @media(max-width:550px){

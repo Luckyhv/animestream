@@ -89,6 +89,14 @@ function Search() {
                       className="searchinputbox"
                       placeholder="Search Anime..."
                       onChange={(event) => setQuery(event.target.value)}
+                      onKeyDown={(event) => {
+                        if (event.key === "Enter" && data?.results?.length > 0) {
+                          navigate(`/advancedsearch/${query}`)
+                          setisopen(false);
+                          setData(null);
+                          setQuery("");
+                        }
+                      }}
                       autoComplete="off"
                     />
                   </div>

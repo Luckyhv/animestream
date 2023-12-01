@@ -3,11 +3,13 @@
     /* margin: 10px ; */
     /* max-width: 1000px;
     max-height: 700px; */
+    align-items: center;
 }
 .episodes ul{
     flex-wrap: wrap;
     display: flex;
     list-style: none;
+    align-items: center;
 }
 .episodes li{
     border-radius: 5px;
@@ -110,4 +112,16 @@ option{
     background-color: #222222;
     color: white;
     cursor: pointer;
+}
+.providersubtype{
+    margin: 0 5px;
+}
+
+@media(max-width:600px){
+    .episodes ul{
+        justify-content: center;
+    }
+    .providersubtype{
+        margin: 0 10px;
+    }
 }

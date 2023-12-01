@@ -1,43 +1,60 @@
-.navbar{
+.navbar {
     display: flex;
     align-items: center;
-    height: 70px;
-    /* border: 1px solid white; */
+    height: 60px;
+    position: fixed;
+    top: 0; 
+    width: 100%; 
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1000; 
+    transition: background-color 0.3s;
+    backdrop-filter: blur(8px);
 }
-.navbar-logo .link{
+
+.navbar-logo .link {
     color: white;
     text-decoration: none;
     font-size: 22px;
 }
-.link span{
+
+.link span {
     color: rgb(202, 19, 19);
     font-size: 35px;
 }
-.navbar-left,.navbar-right{
+
+.navbar-left,
+.navbar-right {
     margin: auto;
     width: 40%;
     display: flex;
 }
-.navbar-right{
+
+.navbar-right {
     justify-content: flex-end;
 }
-.search-button{
+
+.search-button {
     border: none;
     background-color: inherit;
     cursor: pointer;
 }
-@media(max-width:900px){
-    .navbar-left,.navbar-right{
+
+@media (max-width: 900px) {
+    .navbar-left,
+    .navbar-right {
         width: 100%;
-        padding: 0.75rem;
+        padding: 0 0.4rem;
         display: flex;
     }
-    .navbar{
+
+    .navbar {
         justify-content: space-between;
         align-items: center;
-        height: 50px;
+        height: 60px;
+        background-color: rgba(0, 0, 0, 0.8); /* Adjust the background color for mobile */
     }
-    .search-button{
+
+    .search-button {
         margin-top: 10px;
     }
 }

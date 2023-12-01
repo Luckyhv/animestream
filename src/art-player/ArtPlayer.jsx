@@ -36,14 +36,12 @@ function ArtPlayer({ option, getInstance, skip,...rest }) {
           : []),
     ],
       settings: [
-        // provider === "gogoanime" &&
         {
           html: "Autoplay Next",
           icon: '<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24"><path fill="currentColor" d="M4.05 16.975q-.5.35-1.025.05t-.525-.9v-8.25q0-.6.525-.888t1.025.038l6.2 4.15q.45.3.45.825t-.45.825l-6.2 4.15Zm10 0q-.5.35-1.025.05t-.525-.9v-8.25q0-.6.525-.888t1.025.038l6.2 4.15q.45.3.45.825t-.45.825l-6.2 4.15Z"></path></svg>',
           tooltip: "ON/OFF",
           switch: localStorage.getItem("autoplay") === "true" ? true : false,
           onSwitch: function (item) {
-            // setPlayNext(!item.switch);
             localStorage.setItem("autoplay", !item.switch);
             return !item.switch;
           },
@@ -51,12 +49,10 @@ function ArtPlayer({ option, getInstance, skip,...rest }) {
         {
           html: "Autoplay Video",
           icon: '<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24"><path fill="currentColor" d="M4.05 16.975q-.5.35-1.025.05t-.525-.9v-8.25q0-.6.525-.888t1.025.038l6.2 4.15q.45.3.45.825t-.45.825l-6.2 4.15Zm10 0q-.5.35-1.025.05t-.525-.9v-8.25q0-.6.525-.888t1.025.038l6.2 4.15q.45.3.45.825t-.45.825l-6.2 4.15Z"></path></svg>',
-          // icon: '<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24"><path fill="currentColor" d="M5.59 7.41L7 6l6 6l-6 6l-1.41-1.41L10.17 12L5.59 7.41m6 0L13 6l6 6l-6 6l-1.41-1.41L16.17 12l-4.58-4.59Z"></path></svg>',
           tooltip: "ON/OFF",
           switch:
             localStorage.getItem("autoplay_video") === "true" ? true : false,
           onSwitch: function (item) {
-            setAutoPlay(!item.switch);
             localStorage.setItem("autoplay_video", !item.switch);
             return !item.switch;
           },
@@ -101,9 +97,7 @@ function ArtPlayer({ option, getInstance, skip,...rest }) {
       const isMobile = window.matchMedia("(max-width: 768px)").matches;
   
         if (isMobile) {
-          // art.controls.remove("theater-button");
           art.controls.remove("fast-rewind");
-          // art.controls.remove("fast-forward");
         }
   
     })

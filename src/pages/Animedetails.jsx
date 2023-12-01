@@ -9,7 +9,7 @@ import Skeleton from "react-loading-skeleton";
 
 function Animedetails() {
   const { id } = useParams();
-  const { setGlobalData, anifyGlobalData, } = useContext(DataContext)
+  const { fetchAnifyEpisodes, fetchAnimeDetails } = useContext(DataContext)
   const [animeDetails, setAnimeDetails] = useState([]);
   const [loading, setLoading] = useState(true);
   const [expanded, setExpanded] = useState(false);
@@ -23,18 +23,9 @@ function Animedetails() {
     setExpanded(false);
     window.scrollTo(0, 0);
     try {
-
-      const response = await axios.get(
-        `${import.meta.env.VITE_BACKEND_URL}meta/anilist/info/${id}`,{
-          params:{
-            provider: 'animefox'
-          }
-        }
-        // `https://api.anify.tv/info/${id}?fields=[id,slug,coverImage,bannerImage,trailer,status,season,title,currentEpisode,countryOfOrigin,description,duration,year,type,format,totalEpisodes,genres,averageRating]`
-      );
-      setAnimeDetails(response.data);
-      setGlobalData(response.data);
-      getLocalStorage(response.data);
+      const fetchedData = await fetchAnimeDetails(id);
+      setAnimeDetails(fetchedData);
+      getLocalStorage(fetchData);
     } catch (error) {
       console.error("Error fetching anime details:", error);
     } finally {
@@ -43,11 +34,9 @@ function Animedetails() {
 
   const anifydata = async () => {
     try {
-      const res = await axios.get(`https://api.anify.tv/episodes/${id}`);
+      const fetchedepisodes = await fetchAnifyEpisodes(id);
       // const res = await axios.get(`https://api.anify.tv/info/${id}?fields=[episodes]`);
-      anifyGlobalData(res.data);
-      console.log(res.data);
-      const gogoAnimeEpisode = res.data.find(item => item.providerId === 'gogoanime');
+      const gogoAnimeEpisode = fetchedepisodes.find(item => item.providerId === 'gogoanime');
 
       if (gogoAnimeEpisode) {
         // Do something with the found episode
@@ -55,7 +44,7 @@ function Animedetails() {
         setanifyepisodes(gogoAnimeEpisode)
       } else {
         console.log("No gogoanime episode found");
-        setanifyepisodes(res.data[0])
+        setanifyepisodes(fetchedepisodes[0])
       }
     } catch (error) {
       console.error("Error fetching anify data:", error);

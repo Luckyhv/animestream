@@ -21,6 +21,7 @@ const App = () => {
     <DataProvider>
     <Router>
       <Navbar/>
+      <div className='allcomponents'>
       <Routes>
         <Route path="/" exact element={<Home/>} />
         <Route path="/info/:id" element={<Animedetails/>} />
@@ -30,6 +31,7 @@ const App = () => {
       */}
       <Route path="*" element={<UnderDevelopment />} />
       </Routes>
+      </div>
     </Router>
       </DataProvider>
   );

@@ -35,9 +35,31 @@
     font-weight: 100;
     margin: 7px 0;
 }
+@media(max-width:670px){
+    .episode-navigation-buttons{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 5px;
+    }
+    .playerbtns{
+        margin: 0 10px 10px 0;
+        padding: 8px 10px;
+    }
+    .watchtitle{
+        font-size: 1.2rem;
+    }
+}
  @media (max-width:600px){
     .player{
-        width: 93%;
+        width: 100%;
         margin: 0 auto;
+    }
+    .eplist{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        /* width: 95%; */
     }
  }

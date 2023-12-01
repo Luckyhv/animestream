@@ -4,7 +4,7 @@
   
   @media screen and (max-width: 600px) {
     .detailscontentskeleton {
-      padding: 1rem;
+      padding: 1rem 0.5rem;
     }
   }
   
@@ -15,7 +15,7 @@
   
   @media screen and (max-width: 600px) {
     .detailsskeleton {
-      margin: 1rem;
+      margin: 1rem 0.4rem;
     }
   }
   
@@ -62,6 +62,6 @@
 
 @media screen and (max-width: 600px) {
   .playerwrapper {
-    margin: 1rem;
+    margin: 1rem 0;
   }
 }

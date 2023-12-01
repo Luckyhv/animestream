@@ -52,7 +52,7 @@ function Episodelist() {
         />
       </label> */}
 
-      <div>
+      <div className='providersubtype'>
         <button onClick={toggleSubtype} className='togglesub'>
           {subtype === 'sub' ? 'Sub' : 'Dub'}
         </button>

@@ -3,7 +3,7 @@
     position: relative;
   
     @media screen and (max-width: 600px) {
-      margin: 1rem;
+      margin: 1rem 0.3rem;
     }
   }
   
@@ -50,8 +50,7 @@
     }
   
     .detailscontentwrapper div {
-      margin: 1rem;
-      margin-bottom: 0.2rem;
+      margin: 1rem 0.4rem 0.2rem 0.4rem;
     }
   
     .detailscontentwrapper div h1 {

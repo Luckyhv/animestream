@@ -4,6 +4,7 @@ import Carousel from '../components/Carousel';
 import '../styles/Home.css';
 import CarouselSkeleton from '../skeletons/CarouselSkeleton';
 import Animecard from '../components/Animecard';
+import Currentlywatching from '../components/Currentlywatching';
 
 function Home() {
   const [animedata, setAnimedata] = useState([]);
@@ -39,6 +40,7 @@ function Home() {
         {loading && <CarouselSkeleton />}
         {!loading && <Carousel animedata={animedata} />}
       </div>
+        <Currentlywatching/>
       <div className="homecontainer">
         <p className='hometitle'><span>R</span>ecently Updated </p>
         <Animecard url={`recent-episodes`} />
