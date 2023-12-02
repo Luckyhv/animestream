@@ -76,7 +76,7 @@ function Currentlywatching() {
     );
   }
   
-  if(data.length<2){
+  if(!data || data.length<2){
     return(
         <div ref={ref} {...events}></div>
     )
