@@ -84,9 +84,10 @@ function Currentlywatching() {
 
   return (
     <div className='cwcontainer'>
-      <p className='hometitle'>
-        <span>C</span>ontinue Watching
-      </p>
+        <div className='hometitle'><div><span>C</span>ontinue Watching </div>
+        {/* <Link to={`/popular`} className='viewall'>View All</Link> */}
+        </div>
+
       <div className='cwitems' {...events} ref={ref}>
         {data
           ?.filter((i) => i?.id)

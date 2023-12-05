@@ -5,6 +5,7 @@ import '../styles/Home.css';
 import CarouselSkeleton from '../skeletons/CarouselSkeleton';
 import Animecard from '../components/Animecard';
 import Currentlywatching from '../components/Currentlywatching';
+import { Link } from 'react-router-dom';
 
 function Home() {
   const [animedata, setAnimedata] = useState([]);
@@ -36,21 +37,21 @@ function Home() {
   return (
     <div className='home'>
       <div className="homecontainer carousel">
-        <p className='hometitle'><span>M</span>OST VIEWED</p>
+      {/* <div className='hometitle'><div><span>M</span>ost Viewed </div></div> */}
         {loading && <CarouselSkeleton />}
         {!loading && <Carousel animedata={animedata} />}
       </div>
         <Currentlywatching/>
       <div className="homecontainer">
-        <p className='hometitle'><span>R</span>ecently Updated </p>
+      <div className='hometitle'><div><span>R</span>ecently Updated </div><Link to={`/recent-episodes`} className='viewall'>View All</Link></div>
         <Animecard url={`recent-episodes`} />
       </div>
       <div className="homecontainer">
-        <p className='hometitle'><span>T</span>rending Today</p>
+        <div className='hometitle'><div><span>T</span>rending Today </div><Link to={`/trending`} className='viewall'>View All</Link></div>
         <Animecard url={`trending`} />
       </div>
       <div className="homecontainer">
-        <p className='hometitle'><span>P</span>opular Anime</p>
+        <div className='hometitle'><div><span>M</span>ost Popular </div><Link to={`/popular`} className='viewall'>View All</Link></div>
         <Animecard url={`popular`} />
       </div>
     </div>

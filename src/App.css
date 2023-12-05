@@ -163,3 +163,7 @@ body {
   font-weight: 500;
   font-size: 0.9rem;
 }
+
+body::-webkit-scrollbar{
+  display: none;
+}

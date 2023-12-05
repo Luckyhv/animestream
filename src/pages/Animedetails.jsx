@@ -118,10 +118,9 @@ function Animedetails() {
                           Watch Now
                         </Link>
                       )
-                    )}
+                      )}
                   </>
                 )}
-
               </div>
               <div>
                 <h1>{animeDetails.title.english || animeDetails.title.romaji}</h1>

@@ -1,5 +1,5 @@
 .detailscontent {
-    margin: 2rem 5rem 2rem 5rem;
+    margin: 0rem 5rem 2rem 5rem;
     position: relative;
   
     @media screen and (max-width: 600px) {
@@ -10,6 +10,7 @@
   .detailscontentwrapper {
     padding: 0 3rem 0 3rem;
     display: flex;
+    position: relative;
   }
   
   .detailscontentwrapper div > * {
@@ -22,7 +23,6 @@
     color: #aaaeb6;
     font-family: "Gilroy-Regular", sans-serif;
   }
-  
   .detailscontentwrapper div span {
     font-family: "Gilroy-Bold", sans-serif;
     color: white;
