@@ -6,7 +6,7 @@ import CarouselSkeleton from '../skeletons/CarouselSkeleton';
 import Animecard from '../components/Animecard';
 import Currentlywatching from '../components/Currentlywatching';
 import { Link } from 'react-router-dom';
-import Verticalcard from '../components/verticalcard';
+import Verticalcard from '../components/Verticalcard';
 
 function Home() {
   const [animedata, setAnimedata] = useState([]);
