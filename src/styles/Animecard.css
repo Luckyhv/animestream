@@ -7,8 +7,8 @@
 }
 
 .animecardimg {
-  width: 165px;
-  height: 235px;
+  width: 175px !important;
+  height: 255px !important;
   object-fit: cover;
   border-radius: 0.375rem;
 }
@@ -47,28 +47,41 @@
   color: #d1d7e0;
   text-align: center;
   font-size: 15px;
-  margin: 4px 2px;
+  margin: 0px 2px;
   width: 100%;
 }
 
 .animecarditem {
-  margin: 0 10px 0 0;
+  margin: 0 12px 0 0;
   padding: 4px;
   border-radius: 0.375rem;
-  width: 165px;
-  height: 280px;
+  width: 175px;
+  height: 300px;
 }
 
+@media (max-width: 1200px) {
+  .animecardimg {
+    width: 165px !important;
+    height: 235px !important;
+    object-fit: cover;
+    border-radius: 0.375rem;
+  }
+  .animecarditem{
+    width: 165px;
+    height: 265px;
+  }
+}
 
 @media (max-width: 768px) {
   .animecardimg {
-    width: 135px;
-    height: 190px;
+    width: 135px !important;
+    height: 190px !important;
     object-fit: cover;
     border-radius: 0.375rem;
   }
   .animecarditem{
     width: 135px;
     height: 230px;
+    margin-right: 10px;
   }
 }

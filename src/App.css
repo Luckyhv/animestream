@@ -5,7 +5,10 @@
 }
 body {
   background-color: #060606;
-  font-family: "Lexend", sans-serif;
+  /* font-family: 'Hedvig Letters Sans', sans-serif; */
+font-family: 'Poppins', sans-serif;
+  letter-spacing: 0px;
+  /* font-family: "Lexend", sans-serif; */
 }
 .allcomponents{
   padding: 60px 0 0 0;

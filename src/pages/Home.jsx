@@ -6,10 +6,12 @@ import CarouselSkeleton from '../skeletons/CarouselSkeleton';
 import Animecard from '../components/Animecard';
 import Currentlywatching from '../components/Currentlywatching';
 import { Link } from 'react-router-dom';
+import Verticalcard from '../components/verticalcard';
 
 function Home() {
   const [animedata, setAnimedata] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [activeButton, setActiveButton] = useState('seasonal');
 
   const getAnimedata = async () => {
     try {
@@ -30,6 +32,10 @@ function Home() {
     }
   };
 
+  const handleButtonClick = (buttonName) => {
+    setActiveButton(buttonName);
+  };
+
   useEffect(() => {
     getAnimedata();
   }, []);
@@ -47,12 +53,29 @@ function Home() {
         <Animecard url={`recent-episodes`} />
       </div>
       <div className="homecontainer">
-        <div className='hometitle'><div><span>T</span>rending Today </div><Link to={`/trending`} className='viewall'>View All</Link></div>
+        <div className='hometitle'><div><span>T</span>rending Now </div><Link to={`/trending`} className='viewall'>View All</Link></div>
         <Animecard url={`trending`} />
       </div>
-      <div className="homecontainer">
-        <div className='hometitle'><div><span>M</span>ost Popular </div><Link to={`/popular`} className='viewall'>View All</Link></div>
+      {/* <div className="homecontainer">
+        <div className='hometitle'><div><span>A</span>ll Time Popular </div><Link to={`/popular`} className='viewall'>View All</Link></div>
         <Animecard url={`popular`} />
+      </div> */}
+      <div className="homecontainer">
+        <div className='hometitle'><div><span>T</span>op Anime </div> <div className="tbtns">
+        <button
+              className={activeButton === 'seasonal' ? 'selectedbtn' : 'notselectedbtn'}
+              onClick={() => handleButtonClick('seasonal')}
+            >
+              Seasonal
+            </button>
+            <button
+              className={activeButton === 'alltime' ? 'selectedbtn' : 'notselectedbtn'}
+              onClick={() => handleButtonClick('alltime')}
+            >
+              All Time
+            </button>
+          </div> </div>
+        <Verticalcard activeButton={activeButton}/>
       </div>
     </div>
   );

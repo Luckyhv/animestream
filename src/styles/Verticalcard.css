@@ -1,0 +1,190 @@
+.verticalcard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .vcarditem {
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    justify-content:flex-end;
+    position: relative;
+    width: 100%;
+  }
+
+  .vcardindex{
+    position: absolute;
+    left: 1.5%;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: rgb(190, 190, 190);
+  }
+  
+  .vcardcontent {
+    display: flex;
+    background-color: #111114;
+    width: 95%;
+    padding: 0.5rem;
+    margin: 10px 0;
+    border-radius: 0.35rem;
+    /* justify-content: space-between; */
+  }
+  
+  .vcardleft {
+    display: flex;
+    align-items: center;
+    width: 62%;
+    gap: 1rem;
+  }
+  
+  .vcardimg {
+    width: 48px;
+    height: 60px;
+    border-radius: 4px;
+    object-fit: cover;
+  }
+  
+  .vcardinfo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .linktitle {
+    text-decoration: none;
+    color: rgb(254, 254, 254);
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+  
+  .vcardgenres {
+    display: flex;
+    overflow: hidden;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    max-height: 1.5rem;
+  }
+  
+  .vgenre {
+    padding: 0.3rem 0.5rem;
+    border-radius: 0.75rem;
+    font-size: 0.6rem;
+    font-weight: 600;
+    color: black;
+  }
+  
+  .vcardright {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+  }
+  
+  .vcardpopular {
+    display: flex;
+  }
+  .p{
+    width: 100px;
+  }
+  .f{
+    width: 110px;
+  }
+  .vcardpopular svg {
+    margin-right: 5px;
+    color: rgb(123, 213, 85);
+  }
+  
+  .vpopular {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .bpopular {
+    color: rgb(116, 136, 153);
+    font-size: 0.8rem;
+  }
+  
+  .vcardstatus {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .vstatus {
+    color: rgb(116, 136, 153);
+    font-size: 0.7rem;
+  }
+  .s{
+    width: 100px;
+  }
+  .c {
+    color: #22c55e;
+  }
+  
+  .season,
+  .format,
+  .score {
+    font-weight: 600;
+    font-size: 0.8rem;
+  }
+  .season,.score{
+    /* margin-bottom: 2px; */
+  }
+
+  @media(max-width:960px){
+    .vcardcontent{
+        width: 100%;
+    }
+    .vcardindex{
+        left: 0;
+        font-size: 10px;
+        top: 10px;
+        color: black;
+        padding: 0.25rem;
+        border-radius: 50%;
+        font-weight: 500;
+    }
+  }
+
+  @media(max-width:900px){
+    .vcardpopular{
+        display: none;
+    }
+    .vcardcontent{
+        justify-content: space-between;
+    }
+    .vcardright{
+        gap: 0.5rem;
+        margin-left: 10px;
+    }
+  }
+
+  @media(max-width:525px){
+    .vcardstatus{
+        display: none;
+    }
+    .vcardcontent{
+        padding-right: 0;
+    }
+    .f{
+        width: 90px;
+    }
+    .linktitle{
+        font-size: 0.85rem;
+        font-weight: 600;
+    }
+    .bpopular {
+        color: rgb(116, 136, 153);
+        font-size: 0.7rem;
+      }
+      .format{
+        font-size: 0.8rem;
+        font-weight: 500;
+      }
+       .vcardright{
+        gap: 0rem;
+        margin-left: 5px;
+    }
+  }

@@ -50,7 +50,7 @@ function Animecard({ url }) {
           {animedata.map((anime) => (
             <SwiperSlide key={anime.id} className="animecarditem" {...events} ref={containerRef}>
               <Link to={`/info/${anime.id}`}>
-                <img src={anime.image} alt={anime.title.english} className="animecardimg" />
+                <img src={anime.image} alt={anime.title.english} className="animecardimg" loading='lazy'/>
               </Link>
               <div className="animecard-content">
                 <p className="animecardtitle">
